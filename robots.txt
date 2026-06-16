@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daakrofi.github.io/meet-daniel-akrofi/sitemap.xml
