@@ -52,8 +52,6 @@ const skillCopy = {
     "Applied NLP to online product-community text through preprocessing, sentiment analysis, theme extraction, and speculation-cue classification.",
   "scikit-learn":
     "Used scikit-learn workflows for baseline models, validation, cross-validation, and interpretable evaluation in analytical projects.",
-  Pandas:
-    "Used pandas to merge scraped datasets, handle launch dates, clean missing values, and build Movie League scoring features.",
   "Web scraping":
     "Designed scraping workflows for public movie signals and online-community data used in ranking and launch-discourse analysis.",
   GitHub:
