@@ -456,36 +456,48 @@ h3 {
   gap: 24px;
 }
 
-.league-controls label {
-  color: rgba(255, 253, 248, 0.84);
+.league-day-card {
+  border-left: 4px solid #e3a635;
   display: grid;
   gap: 10px;
-  font-weight: 700;
+  padding-left: 18px;
 }
 
-.range-label {
-  align-items: center;
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
+.league-day-card span {
+  color: rgba(255, 253, 248, 0.54);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.range-label strong {
-  color: #e3a635;
+.league-day-card strong {
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 5.4rem);
   font-variant-numeric: tabular-nums;
+  line-height: 0.92;
 }
 
-input[type="range"] {
-  accent-color: #e3a635;
-  width: 100%;
+.league-progress {
+  background: rgba(255, 253, 248, 0.12);
+  height: 4px;
+  overflow: hidden;
+  width: min(100%, 260px);
+}
+
+.league-progress span {
+  background: #e3a635;
+  display: block;
+  height: 100%;
+  transition: width 260ms ease;
+  width: 10%;
 }
 
 .formula-chip {
-  border-left: 4px solid #e3a635;
   color: rgba(255, 253, 248, 0.82);
   display: grid;
   gap: 8px;
-  padding-left: 18px;
 }
 
 .formula-chip span {
@@ -513,7 +525,7 @@ input[type="range"] {
 
 .league-table {
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 720px;
   width: 100%;
 }
 

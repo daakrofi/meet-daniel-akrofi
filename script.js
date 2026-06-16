@@ -62,76 +62,66 @@ const skillCopy = {
     "Used R/RStudio for academic statistical analysis, exploratory modeling, and thesis/research workflows at Warwick.",
 };
 
-const archivedMovies = [
+const leagueMovies = [
   {
     title: "Superman",
-    sourceRank: 1,
-    dailyGross: 18858328,
-    totalGross: 236233556,
-    days: 10,
+    audience: 88,
+    reviews: 82,
+    dailyGross: [18.9, 15.4, 12.8, 10.6, 8.9, 7.2, 6.1, 5.0, 4.2, 3.6],
   },
   {
     title: "Jurassic World: Rebirth",
-    sourceRank: 2,
-    dailyGross: 7515280,
-    totalGross: 276485990,
-    days: 19,
+    audience: 78,
+    reviews: 66,
+    dailyGross: [7.5, 8.2, 9.1, 8.4, 7.8, 6.5, 5.7, 5.1, 4.6, 4.0],
   },
   {
     title: "F1: The Movie",
-    sourceRank: 3,
-    dailyGross: 3145114,
-    totalGross: 153904702,
-    days: 24,
+    audience: 90,
+    reviews: 84,
+    dailyGross: [3.1, 3.9, 4.6, 5.4, 6.2, 6.8, 5.9, 5.1, 4.5, 3.7],
   },
   {
     title: "Smurfs",
-    sourceRank: 4,
-    dailyGross: 3121911,
-    totalGross: 11075090,
-    days: 3,
+    audience: 72,
+    reviews: 58,
+    dailyGross: [3.1, 5.9, 6.6, 5.2, 4.4, 3.7, 3.2, 2.8, 2.3, 1.9],
   },
   {
     title: "I Know What You Did Last Summer",
-    sourceRank: 5,
-    dailyGross: 3027487,
-    totalGross: 12755359,
-    days: 3,
+    audience: 65,
+    reviews: 62,
+    dailyGross: [3.0, 4.8, 4.1, 3.6, 3.1, 2.6, 2.1, 1.9, 1.6, 1.3],
   },
   {
     title: "How to Train Your Dragon",
-    sourceRank: 6,
-    dailyGross: 1620150,
-    totalGross: 250784795,
-    days: 38,
+    audience: 91,
+    reviews: 74,
+    dailyGross: [1.6, 2.0, 2.5, 3.0, 3.8, 4.3, 4.8, 4.0, 3.5, 3.0],
   },
   {
     title: "Eddington",
-    sourceRank: 7,
-    dailyGross: 1016826,
-    totalGross: 4255607,
-    days: 3,
+    audience: 76,
+    reviews: 88,
+    dailyGross: [1.0, 2.2, 2.9, 3.4, 3.1, 2.8, 2.4, 2.2, 2.0, 1.8],
   },
   {
     title: "Elio",
-    sourceRank: 8,
-    dailyGross: 683063,
-    totalGross: 69045557,
-    days: 31,
+    audience: 83,
+    reviews: 79,
+    dailyGross: [0.7, 1.0, 1.5, 2.0, 2.6, 3.1, 3.8, 4.6, 4.2, 3.7],
   },
   {
     title: "Lilo & Stitch",
-    sourceRank: 9,
-    dailyGross: 506413,
-    totalGross: 418283149,
-    days: 59,
+    audience: 89,
+    reviews: 73,
+    dailyGross: [0.5, 0.8, 1.2, 1.8, 2.1, 2.7, 3.4, 3.9, 4.5, 5.0],
   },
   {
     title: "28 Years Later",
-    sourceRank: 10,
-    dailyGross: 377178,
-    totalGross: 68725097,
-    days: 31,
+    audience: 70,
+    reviews: 89,
+    dailyGross: [0.4, 0.9, 1.4, 2.4, 3.2, 3.9, 4.5, 4.1, 3.6, 3.1],
   },
 ];
 
@@ -198,8 +188,8 @@ skillButtons.forEach((button) => {
 });
 
 const leagueBody = document.querySelector("#league-body");
-const rankMultiplierWeight = document.querySelector("#rank-multiplier-weight");
-const rankMultiplierValue = document.querySelector("#rank-multiplier-value");
+const leagueDay = document.querySelector("#league-day");
+const leagueProgressFill = document.querySelector("#league-progress-fill");
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
   compactDisplay: "short",
@@ -209,36 +199,35 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
   currency: "USD",
 });
 
-function getRankMultiplier(sourceRank, strength) {
-  if (!sourceRank || sourceRank < 1 || sourceRank > 10) {
-    return 1;
-  }
+let activeLeagueDay = 0;
 
-  const originalBonus = (10 - sourceRank) / 9;
-  return 1 + originalBonus * strength;
+function clampScore(value) {
+  return Math.max(0, Math.min(100, value));
 }
 
-function getPerformanceScore(movie, multiplierStrength) {
-  const previousGross = movie.totalGross - movie.dailyGross;
-  const dailyGrowthRate = previousGross > 0 ? (movie.dailyGross / previousGross) * 100 : 0;
-  const basePoints = movie.days <= 1 ? 10 : Math.sqrt(Math.max(0, dailyGrowthRate));
-  const rankMultiplier = getRankMultiplier(movie.sourceRank, multiplierStrength);
+function getLeagueScore(movie, dayIndex, maxDailyGross) {
+  const dailyGross = movie.dailyGross[dayIndex];
+  const previousGross = movie.dailyGross[Math.max(0, dayIndex - 1)];
+  const grossStrength = maxDailyGross > 0 ? (dailyGross / maxDailyGross) * 100 : 0;
+  const momentum = dayIndex === 0 ? 0 : ((dailyGross - previousGross) / previousGross) * 100;
+  const momentumStrength = clampScore(50 + momentum);
+  const score = grossStrength * 0.45 + momentumStrength * 0.3 + movie.audience * 0.15 + movie.reviews * 0.1;
 
   return {
-    basePoints,
-    dailyGrowthRate,
-    rankMultiplier,
-    score: basePoints * rankMultiplier,
+    dailyGross,
+    momentum,
+    score,
   };
 }
 
 function renderLeague() {
-  const multiplierStrength = Number(rankMultiplierWeight.value) / 100;
-  rankMultiplierValue.textContent = `${rankMultiplierWeight.value}%`;
+  const maxDailyGross = Math.max(...leagueMovies.map((movie) => movie.dailyGross[activeLeagueDay]));
+  leagueDay.textContent = String(activeLeagueDay + 1).padStart(2, "0");
+  leagueProgressFill.style.width = `${((activeLeagueDay + 1) / 10) * 100}%`;
 
-  const ranked = archivedMovies
+  const ranked = leagueMovies
     .map((movie) => {
-      const performance = getPerformanceScore(movie, multiplierStrength);
+      const performance = getLeagueScore(movie, activeLeagueDay, maxDailyGross);
       return {
         ...movie,
         ...performance,
@@ -252,10 +241,10 @@ function renderLeague() {
         <tr>
           <td>${index + 1}</td>
           <td>${movie.title}</td>
-          <td>#${movie.sourceRank}</td>
-          <td>${currencyFormatter.format(movie.dailyGross)}</td>
-          <td>${movie.days}</td>
-          <td>${movie.rankMultiplier.toFixed(2)}x</td>
+          <td>${currencyFormatter.format(movie.dailyGross * 1000000)}</td>
+          <td>${movie.momentum >= 0 ? "+" : ""}${movie.momentum.toFixed(1)}%</td>
+          <td>${movie.audience}</td>
+          <td>${movie.reviews}</td>
           <td>${movie.score.toFixed(2)}</td>
         </tr>
       `
@@ -263,9 +252,12 @@ function renderLeague() {
     .join("");
 }
 
-rankMultiplierWeight.addEventListener("input", renderLeague);
-
 renderLeague();
+
+setInterval(() => {
+  activeLeagueDay = (activeLeagueDay + 1) % 10;
+  renderLeague();
+}, 1000);
 
 const revealTargets = document.querySelectorAll(".section, .signal-band, .contact-section");
 

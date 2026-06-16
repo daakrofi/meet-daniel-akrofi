@@ -184,25 +184,24 @@
 
       <section class="section league-section" id="league" aria-labelledby="league-title">
         <div class="section-heading">
-          <p class="eyebrow">Recovered portfolio project</p>
-          <h2 id="league-title">Movie League ranked real films with a scoring function.</h2>
+          <p class="eyebrow">Illustrative portfolio project</p>
+          <h2 id="league-title">Movie League turns changing film signals into a live ranking.</h2>
         </div>
         <div class="league-layout">
-          <div class="league-controls" aria-label="Movie League scoring weights">
-            <label>
-              <span class="range-label">
-                Top-10 rank multiplier
-                <strong id="rank-multiplier-value">100%</strong>
-              </span>
-              <input type="range" min="0" max="200" value="100" step="10" id="rank-multiplier-weight">
-            </label>
+          <div class="league-controls" aria-label="Movie League simulation status">
+            <div class="league-day-card" aria-live="polite">
+              <span>Simulation day</span>
+              <strong><span id="league-day">01</span>/10</strong>
+              <div class="league-progress" aria-hidden="true">
+                <span id="league-progress-fill"></span>
+              </div>
+            </div>
             <div class="formula-chip">
-              <span>Recovered formula</span>
-              <strong>sqrt(daily gross / prior gross x 100) x rank multiplier</strong>
+              <span>Scoring logic</span>
+              <strong>daily gross momentum + audience signal + review signal</strong>
             </div>
             <p class="league-note">
-              Archived snapshot from the recovered Movie League scraper and saved Box Office Mojo page for July 20, 2025.
-              The full system also joined CinemaScore and Rotten Tomatoes data when the local database was running.
+              Ten-day simulation of the Movie League concept. Every second represents a new daily refresh and the table re-ranks.
             </p>
           </div>
           <div class="league-table-wrap">
@@ -211,11 +210,11 @@
                 <tr>
                   <th>Rank</th>
                   <th>Title</th>
-                  <th>Box office</th>
                   <th>Daily gross</th>
-                  <th>Days</th>
-                  <th>Rank x</th>
-                  <th>Perf score</th>
+                  <th>Momentum</th>
+                  <th>Audience</th>
+                  <th>Reviews</th>
+                  <th>Score</th>
                 </tr>
               </thead>
               <tbody id="league-body"></tbody>
