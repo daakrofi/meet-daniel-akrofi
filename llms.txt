@@ -40,6 +40,7 @@ Research and portfolio work analyzing public online community discourse around p
 ### Movie League Weekly Ranking System
 
 Illustrative portfolio project demonstrating web-scraped movie signal processing, scoring logic, ranking, and interpretable tabular outputs.
+Repository: https://github.com/daakrofi/The-Movie-League
 
 ### Box Office Performance Analysis
 

@@ -418,6 +418,18 @@ h3 {
   border-top: 5px solid var(--amber);
 }
 
+.project-link {
+  color: var(--blue);
+  display: inline-flex;
+  font-weight: 800;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
