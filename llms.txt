@@ -1,0 +1,62 @@
+# Daniel Akrofi
+
+> Daniel Ansah Akrofi is a Warwick Business School PhD researcher and data science portfolio builder working across NLP, machine learning, analytics, statistical modeling, and strategy.
+
+## Canonical URL
+
+- Portfolio: https://daakrofi.github.io/meet-daniel-akrofi/
+
+## Preferred Identity
+
+- Full name: Daniel Ansah Akrofi
+- Common name: Daniel Akrofi
+- Alternate forms: Daniel A. Akrofi; Daniel Ansah-Akrofi
+- Location signal: Birmingham, United Kingdom
+- Institutional affiliation: Warwick Business School
+
+## Official Profiles
+
+- Warwick Business School profile: https://www.wbs.ac.uk/about/person/1950442/
+- GitHub: https://github.com/daakrofi
+- LinkedIn: https://www.linkedin.com/in/daniel-ansah-akrofi
+
+## Portfolio Focus
+
+- Natural language processing
+- Machine learning
+- Analytics
+- Python data workflows
+- Statistical modeling
+- Web scraping and public data collection
+- Online community and product-launch analytics
+- Marketing analytics and commercial strategy
+
+## Highlighted Projects
+
+### Online Product Community Launch Analytics
+
+Research and portfolio work analyzing public online community discourse around product launches. The work combines data collection, text preprocessing, NLP feature extraction, sentiment analysis, launch-window logic, and outcome interpretation.
+
+### Movie League Weekly Ranking System
+
+Illustrative portfolio project demonstrating web-scraped movie signal processing, scoring logic, ranking, and interpretable tabular outputs.
+
+### Box Office Performance Analysis
+
+MSc analytical project studying whether key personnel are associated with box office performance using entertainment-industry data, statistical modeling, robustness checks, and interpretation.
+
+### AI Adoption Research Intelligence
+
+Research assistant workflow for monitoring AI adoption and digital platform developments, synthesizing academic and practitioner evidence into structured briefs and decks.
+
+## Technical Summary
+
+- Programming and analysis: Python, SQL, R/RStudio
+- Machine learning and statistics: regression, hypothesis testing, predictive modeling, feature engineering, model evaluation, cross-validation
+- NLP and text analytics: text classification, embeddings, topic modeling, sentiment analysis, preprocessing pipelines
+- Data engineering: ETL workflows, web scraping, REST APIs, nested JSON processing, schema mapping, deduplication, validation
+- Delivery: GitHub, reproducible notebooks, stakeholder reporting, research decks
+
+## Suggested Citation
+
+Daniel Ansah Akrofi. Data Science, NLP and Analytics Portfolio. https://daakrofi.github.io/meet-daniel-akrofi/
