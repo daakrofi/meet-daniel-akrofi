@@ -12,4 +12,6 @@ Then open `http://localhost:5173`.
 
 ## GitHub Pages
 
-This project has no build step. Push the contents of this folder to a GitHub repository named `meet-daniel-akrofi`, then enable GitHub Pages from the repository settings.
+This project has no build step and is published from the `main` branch.
+
+Live site: https://daakrofi.github.io/meet-daniel-akrofi/
