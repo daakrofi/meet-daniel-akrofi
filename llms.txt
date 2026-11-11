@@ -50,6 +50,22 @@ MSc analytical project studying whether key personnel are associated with box of
 
 Research assistant workflow for monitoring AI adoption and digital platform developments, synthesizing academic and practitioner evidence into structured briefs and decks.
 
+## Research
+
+Research section: https://daakrofi.github.io/meet-daniel-akrofi/#research
+
+### Working Papers
+
+- Beyond Buzz: Pre-release User Speculation and New Product Outcomes. Daniel Ansah Akrofi, Nick Lee, Jianzhong Hu, and John Rudd. Uses NLP to measure pre-release speculation and examine its relationship with sales, revenue, and user reviews. Available upon request.
+- Pre-release Disclosures, Consumer Uncertainty, and New Product Outcomes (working title). Daniel Ansah Akrofi, Nick Lee, Jianzhong Hu, and John Rudd. Investigates the topic and timing of official disclosures, consumer uncertainty, and launch outcomes. Available upon request.
+- Hype and Hope: A Study on Online Community Defensiveness Against Negative eWOM in the Wake of Product Launches. Daniel Ansah Akrofi. Examines hype, hope, and responses to negative electronic word-of-mouth using Reddit discussions. Available upon request.
+
+Working paper requests: daniel.akrofi@gmail.com. These are working papers, not published journal articles.
+
+### Research in Progress
+
+- Expectation Disconfirmation and Post-release Consumer Evaluations (working title). Daniel Ansah Akrofi, Nick Lee, Jianzhong Hu, and John Rudd. Explores how post-release experiences that confirm or contradict pre-release expectations relate to consumer evaluations of new products.
+
 ## Technical Summary
 
 - Programming and analysis: Python, SQL, R/RStudio
